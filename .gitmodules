@@ -1,6 +1,3 @@
-[submodule "jupyter-ai-feedstock"]
-	path = jupyter-ai-feedstock
-	url = git@github.com:conda-forge/jupyter-ai-feedstock.git
 [submodule "jupyter-ai-router-feedstock"]
 	path = jupyter-ai-router-feedstock
 	url = git@github.com:conda-forge/jupyter-ai-router-feedstock.git

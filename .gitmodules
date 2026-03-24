@@ -1,0 +1,36 @@
+[submodule "jupyter-ai-feedstock"]
+	path = jupyter-ai-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-feedstock.git
+[submodule "jupyter-ai-router-feedstock"]
+	path = jupyter-ai-router-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-router-feedstock.git
+[submodule "jupyter-ai-persona-manager-feedstock"]
+	path = jupyter-ai-persona-manager-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-persona-manager-feedstock.git
+[submodule "jupyter-ai-litellm-feedstock"]
+	path = jupyter-ai-litellm-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-litellm-feedstock.git
+[submodule "jupyter-ai-chat-commands-feedstock"]
+	path = jupyter-ai-chat-commands-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-chat-commands-feedstock.git
+[submodule "jupyterlab-commands-toolkit-feedstock"]
+	path = jupyterlab-commands-toolkit-feedstock
+	url = git@github.com:conda-forge/jupyterlab-commands-toolkit-feedstock.git
+[submodule "jupyter_server_documents-feedstock"]
+	path = jupyter_server_documents-feedstock
+	url = git@github.com:conda-forge/jupyter_server_documents-feedstock.git
+[submodule "jupyterlab-chat-feedstock"]
+	path = jupyterlab-chat-feedstock
+	url = git@github.com:conda-forge/jupyterlab-chat-feedstock.git
+[submodule "jupyter-ai-acp-client-feedstock"]
+	path = jupyter-ai-acp-client-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-acp-client-feedstock.git
+[submodule "jupyter-server-mcp-feedstock"]
+	path = jupyter-server-mcp-feedstock
+	url = git@github.com:conda-forge/jupyter-server-mcp-feedstock.git
+[submodule "jupyter-ai-tools-feedstock"]
+	path = jupyter-ai-tools-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-tools-feedstock.git
+[submodule "jupyter-ai-magic-commands-feedstock"]
+	path = jupyter-ai-magic-commands-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-magic-commands-feedstock.git

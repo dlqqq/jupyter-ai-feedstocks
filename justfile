@@ -2,10 +2,6 @@
 pull-all:
     git submodule foreach -q 'echo $sm_path' | xargs -P 100 -I{} sh -c 'cd {} && git switch main -q && git pull -q'
 
-# Pull latest main (sequential, slow)
-pull-all-old:
-    git submodule foreach 'git checkout main && git pull'
-
 # Ensure a GitHub fork exists for each feedstock and set default repo to origin
 ensure-forks:
     #!/usr/bin/env bash

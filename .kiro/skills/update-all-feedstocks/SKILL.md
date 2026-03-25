@@ -95,7 +95,24 @@ git switch -c update-to-<version>
 git add recipe/recipe.yaml
 git commit -m "Update to <version>"
 git push fork update-to-<version>
-gh pr create --base main --title "Update to <version>" --body "Update to version <version> from PyPI."
+gh pr create --base main --title "Update to <version>" --body "<pr_body>"
+```
+
+For the PR body, fill out the conda-forge PR template checklist. Check off items that apply:
+
+```
+Checklist
+- [x] Used a personal fork of the feedstock to propose changes
+- [ ] Bumped the build number (if the version is unchanged)
+- [x] Reset the build number to `0` (if the version changed)
+- [x] Re-rendered with the latest `conda-smithy`
+- [x] Ensured the license file is being packaged.
+```
+
+After opening the PR, trigger a re-render by adding a comment:
+
+```bash
+gh pr comment --body "@conda-forge-admin, please rerender"
 ```
 
 After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`, and add the PR link as a sub-bullet. Example:

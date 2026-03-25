@@ -51,7 +51,7 @@ For each package, do the following:
 Run the update script to set the new version and sha256 in the recipe:
 
 ```bash
-python3 scripts/update_recipe.py <feedstock>/recipe/recipe.yaml <version>
+python3 scripts/update_version_and_hash.py <feedstock>/recipe/recipe.yaml <version>
 ```
 
 #### 4b: Update run dependencies

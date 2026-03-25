@@ -98,4 +98,11 @@ git push fork update-to-<version>
 gh pr create --base main --title "Update to <version>" --body "Update to version <version> from PyPI."
 ```
 
-After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`. Read `TODO.md` before each package to check what's remaining.
+After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`, and add the PR link as a sub-bullet. Example:
+
+```markdown
+- [x] jupyter-ai-acp-client → 0.0.8
+  - https://github.com/conda-forge/jupyter-ai-acp-client-feedstock/pull/3
+```
+
+Read `TODO.md` before each package to check what's remaining.

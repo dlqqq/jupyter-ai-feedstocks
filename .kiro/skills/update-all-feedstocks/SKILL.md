@@ -139,7 +139,7 @@ gh pr comment --body "@conda-forge-admin, please rerender"
 
 After posting the comment, go through each checkbox in the PR body and check it
 after verifying the item applies. You can check "re-rendered" right after
-posting the comment.
+posting the comment asking the bot to rerender.
 
 After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`, and add the PR link as a sub-bullet. Example:
 

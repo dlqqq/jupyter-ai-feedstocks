@@ -18,9 +18,10 @@ Loop until all PRs are either merged or have failing CI:
    ```bash
    cd <feedstock> && gh pr checks <number>
    ```
-3. If all checks pass, merge the PR:
+3. If all checks pass, get the PR title and merge the PR:
    ```bash
-   cd <feedstock> && gh pr merge <number> --squash
+   title=$(cd <feedstock> && gh pr view <number> --json title -q .title)
+   cd <feedstock> && gh pr merge <number> --squash -t "$title"
    ```
    Mark the PR as merged.
 4. If any check has failed, mark the PR as failed and stop polling it.

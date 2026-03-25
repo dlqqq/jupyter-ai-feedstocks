@@ -27,6 +27,17 @@ This will:
 
 If all feedstocks are up to date, report that to the user and stop.
 
+After listing missing versions, write a `TODO.md` file in the repo root with a checklist of packages to update. Only include the **earliest** missing version per package. Example:
+
+```markdown
+# Pending Updates
+
+- [ ] jupyter-ai-acp-client → 0.0.8
+- [ ] jupyter-ai-litellm → 0.0.2
+```
+
+If `TODO.md` already exists, overwrite it.
+
 ### Step 3: Ensure Forks
 Run the following to ensure a GitHub fork and remote exists for each feedstock:
 
@@ -78,3 +89,5 @@ git commit -m "Update to <version>"
 git push fork update-to-<version>
 gh pr create --base main --title "Update to <version>" --body "Update to version <version> from PyPI."
 ```
+
+After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`. Read `TODO.md` before each package to check what's remaining.

@@ -112,7 +112,7 @@ git push fork update-to-<version>
 gh pr create --base main --title "Update to <version>" --body "<pr_body>"
 ```
 
-For the PR body, fill out the conda-forge PR template checklist. Check off items that apply:
+For the PR body, fill out the conda-forge PR template checklist. All checkboxes should be checked — verify each item applies before checking:
 
 ```
 Checklist

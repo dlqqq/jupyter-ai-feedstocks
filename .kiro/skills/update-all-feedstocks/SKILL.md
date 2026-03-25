@@ -112,15 +112,15 @@ git push fork update-to-<version>
 gh pr create --base main --title "Update to <version>" --body "<pr_body>"
 ```
 
-For the PR body, fill out the conda-forge PR template checklist. All checkboxes should be checked — verify each item applies before checking:
+For the PR body, fill out the conda-forge PR template checklist with all boxes unchecked:
 
 ```
 Checklist
-- [x] Used a personal fork of the feedstock to propose changes
+- [ ] Used a personal fork of the feedstock to propose changes
 - [ ] Bumped the build number (if the version is unchanged)
-- [x] Reset the build number to `0` (if the version changed)
-- [x] Re-rendered with the latest `conda-smithy`
-- [x] Ensured the license file is being packaged.
+- [ ] Reset the build number to `0` (if the version changed)
+- [ ] Re-rendered with the latest `conda-smithy`
+- [ ] Ensured the license file is being packaged.
 ```
 
 After opening the PR, trigger a re-render by adding a comment:
@@ -128,6 +128,8 @@ After opening the PR, trigger a re-render by adding a comment:
 ```bash
 gh pr comment --body "@conda-forge-admin, please rerender"
 ```
+
+After the re-render completes, go through each checkbox in the PR body and check it after verifying the item applies.
 
 After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`, and add the PR link as a sub-bullet. Example:
 

@@ -22,3 +22,7 @@ ensure-forks:
 # List PyPI versions newer than each feedstock's current version
 list-missing-versions: pull-all
     python3 scripts/missing_versions.py
+
+# Update each feedstock to its earliest missing version and open PRs
+update-all: pull-all ensure-forks
+    python3 scripts/update_all.py

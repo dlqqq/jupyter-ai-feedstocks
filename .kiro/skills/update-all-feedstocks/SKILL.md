@@ -36,7 +36,11 @@ After listing missing versions, write a `TODO.md` file in the repo root with a c
 # Pending Updates
 
 - [ ] jupyter-ai-acp-client → 0.0.8
+  - [ ] Opened PR (link: TODO)
+  - [ ] Re-rendered via '@conda-forge-admin, please rerender'
 - [ ] jupyter-ai-litellm → 0.0.2
+  - [ ] Opened PR (link: TODO)
+  - [ ] Re-rendered via '@conda-forge-admin, please rerender'
 ```
 
 If any packages have additional versions beyond the earliest, list them in a separate section:
@@ -129,8 +133,8 @@ After each PR is successfully opened, mark the corresponding item in `TODO.md` a
 
 ```markdown
 - [x] jupyter-ai-acp-client → 0.0.8
-  - https://github.com/conda-forge/jupyter-ai-acp-client-feedstock/pull/3
-  - [ ] rerendered
+  - [x] Opened PR (link: https://github.com/conda-forge/jupyter-ai-acp-client-feedstock/pull/3)
+  - [ ] Re-rendered via '@conda-forge-admin, please rerender'
 ```
 
 Read `TODO.md` before each package to check what's remaining.

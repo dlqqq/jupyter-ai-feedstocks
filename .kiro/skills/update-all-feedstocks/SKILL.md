@@ -84,7 +84,7 @@ Use this to update the `requirements.run` section in `recipe/recipe.yaml`. Follo
 
 - Always keep `python >=${{ python_min }}` as the first run dependency
 - Ignore optional/extra dependencies (those with `extra ==` markers)
-- Use conda-forge package names (e.g. hyphens not underscores)
+- Use conda-forge package names (e.g. hyphens not underscores). If a dependency is newly added (not in the previous recipe), verify it exists with `conda search -c conda-forge <package>`. If not found, try swapping hyphens/underscores and search again.
 - Format version constraints like: `package >=1.0,<2`
 
 #### 4c: Create branch, commit, push, and open PR

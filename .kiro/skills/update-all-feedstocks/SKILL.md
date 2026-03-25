@@ -144,13 +144,15 @@ Read `TODO.md` before each package to check what's remaining.
 After all PRs are opened, present a summary to the user:
 
 1. List each PR opened with the version change and link, e.g.:
+
    ```
    jupyter-ai-acp-client: 0.0.7 → 0.0.8 — https://github.com/conda-forge/jupyter-ai-acp-client-feedstock/pull/3
    ```
 
 2. List any remaining versions that still need updating (i.e. versions beyond the earliest that were skipped), e.g.:
+
    ```
-   Still pending:
+   Remaining versions not updated:
    - jupyter-ai-acp-client: 0.0.9, 0.1.0
    ```
 

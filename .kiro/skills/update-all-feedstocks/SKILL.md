@@ -97,7 +97,7 @@ Use this to update the `requirements.run` section in `recipe/recipe.yaml`. Follo
 
 - Always keep `python >=${{ python_min }}` as the first run dependency
 - Ignore optional/extra dependencies (those with `extra ==` markers)
-- Use conda-forge package names (e.g. hyphens not underscores). If a dependency is newly added (not in the previous recipe), verify it exists with `conda search -c conda-forge <package>`. If not found, try swapping hyphens/underscores and search again.
+- If you are adding a new dependency to the recipe, verify it exists with `conda search -c conda-forge <package>`. If not found, try swapping hyphens/underscores and search again.
 - Format version constraints like: `package >=1.0,<2`
 
 #### 4c: Create branch, commit, push, and open PR
@@ -108,7 +108,8 @@ git switch -c update-to-<version>
 git add recipe/recipe.yaml
 git commit -m "Update to <version>"
 git push fork update-to-<version>
-gh pr create --base main --title "Update to <version>" --body "<pr_body>"
+# for example, PR title should be in the format 'jupyter-ai-acp-client v1.2.3'
+gh pr create --base main --title "<package-name> v<version>" --body "<pr_body>"
 ```
 
 For the PR body, fill out the conda-forge PR template checklist with all boxes unchecked:
@@ -128,14 +129,16 @@ After opening the PR, trigger a re-render by adding a comment:
 gh pr comment --body "@conda-forge-admin, please rerender"
 ```
 
-After the re-render completes, go through each checkbox in the PR body and check it after verifying the item applies.
+After posting the comment, go through each checkbox in the PR body and check it
+after verifying the item applies. You can check "re-rendered" right after
+posting the comment.
 
 After each PR is successfully opened, mark the corresponding item in `TODO.md` as done by changing `- [ ]` to `- [x]`, and add the PR link as a sub-bullet. Example:
 
 ```markdown
 - [x] jupyter-ai-acp-client → 0.0.8
   - [x] Opened PR (link: https://github.com/conda-forge/jupyter-ai-acp-client-feedstock/pull/3)
-  - [ ] Re-rendered via '@conda-forge-admin, please rerender'
+  - [x] Re-rendered via '@conda-forge-admin, please rerender'
 ```
 
 Read `TODO.md` before each package to check what's remaining.

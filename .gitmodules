@@ -42,3 +42,6 @@
 	path = jupyter-ai-magic-commands-feedstock
 	url = git@github.com:conda-forge/jupyter-ai-magic-commands-feedstock.git
 	ignore = all
+[submodule "jupyter-ai-feedstock"]
+	path = jupyter-ai-feedstock
+	url = git@github.com:conda-forge/jupyter-ai-feedstock.git

@@ -6,13 +6,13 @@ Update all conda-forge feedstocks in this repo to their latest PyPI versions.
 
 ### Step 1: Prerequisites
 
-Verify that `just` and `python3` are available in the current environment by running:
+Verify that `just`, `python3`, `conda`, and `gh` are available in the current environment by running:
 
 ```bash
-just --version && python3 --version
+just --version && python3 --version && conda --version && gh --version
 ```
 
-If either is missing, inform the user and stop.
+If any is missing, inform the user and stop.
 
 ### Step 2: List Missing Versions
 

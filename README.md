@@ -7,6 +7,7 @@ A repo for managing [conda-forge](https://conda-forge.org/) feedstock updates fo
 - [just](https://github.com/casey/just)
 - [GitHub CLI](https://cli.github.com/) (`gh`), authenticated
 - Python 3
+- [conda](https://docs.conda.io/)
 - [Kiro](https://kiro.dev)
 
 ## Just Recipes

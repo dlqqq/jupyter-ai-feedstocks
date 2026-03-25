@@ -24,3 +24,7 @@ This repo includes a [Kiro skill](https://kiro.dev) that automates the entire up
 2. Ask Kiro to use the `update-all-feedstocks` skill
 
 Kiro will pull the latest submodules, identify outdated packages, update each recipe's version/hash/dependencies, and open PRs on conda-forge with re-render requests.
+
+## Merging PRs
+
+To merge PRs once CI passes, ask Kiro to use the `merge-pending-ci` skill. Specify which PRs to merge, and Kiro will poll CI status every 30 seconds, merging each PR when checks go green.

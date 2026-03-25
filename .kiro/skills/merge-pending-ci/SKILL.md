@@ -20,7 +20,7 @@ Loop until all PRs are either merged or have failing CI:
    ```
 3. If all checks pass, merge the PR:
    ```bash
-   cd <feedstock> && gh pr merge <number> --merge
+   cd <feedstock> && gh pr merge <number> --squash
    ```
    Mark the PR as merged.
 4. If any check has failed, mark the PR as failed and stop polling it.

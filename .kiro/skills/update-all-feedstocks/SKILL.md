@@ -5,6 +5,7 @@ Update all conda-forge feedstocks in this repo to their latest PyPI versions.
 ## Steps
 
 ### Step 1: Prerequisites
+
 Verify that `just` and `python3` are available in the current environment by running:
 
 ```bash
@@ -14,6 +15,7 @@ just --version && python3 --version
 If either is missing, inform the user and stop.
 
 ### Step 2: List Missing Versions
+
 Run the following to pull latest changes and list feedstocks that are behind PyPI:
 
 ```bash
@@ -21,6 +23,7 @@ just list-missing-versions
 ```
 
 This will:
+
 1. Pull the latest `main` branch for all feedstock submodules (in parallel)
 2. Compare each feedstock's `recipe/recipe.yaml` version against PyPI
 3. Print any packages with newer versions available
@@ -38,7 +41,10 @@ After listing missing versions, write a `TODO.md` file in the repo root with a c
 
 If `TODO.md` already exists, overwrite it.
 
+Present the `TODO.md` to the user and ask for confirmation before proceeding.
+
 ### Step 3: Ensure Forks
+
 Run the following to ensure a GitHub fork and remote exists for each feedstock:
 
 ```bash
@@ -46,6 +52,7 @@ just ensure-forks
 ```
 
 This will, for each feedstock submodule:
+
 1. Check if a git remote named `fork` already exists (skip if so)
 2. Create a GitHub fork via `gh repo fork`
 3. Add it as a remote named `fork`
@@ -74,6 +81,7 @@ curl -s https://pypi.org/pypi/<pypi_name>/json | jq '.info.requires_dist'
 ```
 
 Use this to update the `requirements.run` section in `recipe/recipe.yaml`. Follow conda-forge formatting conventions:
+
 - Always keep `python >=${{ python_min }}` as the first run dependency
 - Ignore optional/extra dependencies (those with `extra ==` markers)
 - Use conda-forge package names (e.g. hyphens not underscores)

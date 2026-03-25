@@ -30,7 +30,10 @@ This will:
 
 If all feedstocks are up to date, report that to the user and stop.
 
-After listing missing versions, write a `TODO.md` file in the repo root with a checklist of packages to update. Only include the **earliest** missing version per package. Example:
+After listing missing versions, write a `TODO.md` file in the repo root with a
+checklist of packages to update. Only include the **earliest** missing version
+per package. If any packages have additional versions beyond the earliest, list
+them in a separate section. Example:
 
 ```markdown
 # Pending Updates
@@ -41,17 +44,13 @@ After listing missing versions, write a `TODO.md` file in the repo root with a c
 - [ ] jupyter-ai-litellm → 0.0.2
   - [ ] Opened PR (link: TODO)
   - [ ] Re-rendered via '@conda-forge-admin, please rerender'
-```
 
-If any packages have additional versions beyond the earliest, list them in a separate section:
-
-```markdown
 # Remaining Versions (DO NOT UPDATE)
 
 - jupyter-ai-acp-client: 0.0.9, 0.1.0
 ```
 
-If there are no remaining versions, omit this section.
+If there are no remaining versions, omit the "Remaining versions" section.
 
 If `TODO.md` already exists, overwrite it.
 

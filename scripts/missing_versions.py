@@ -61,9 +61,7 @@ def newer_versions(all_versions: list[str], baseline: str) -> list[str]:
 
 def main():
     root = Path(__file__).resolve().parent.parent
-    json_mode = "--json" in sys.argv
     found_any = False
-    results = []
 
     for fs in sorted(root.glob("*-feedstock")):
         recipe = fs / "recipe" / "recipe.yaml"
@@ -79,22 +77,12 @@ def main():
         missing = newer_versions(get_pypi_versions(pypi_name), current)
         if missing:
             found_any = True
-            if json_mode:
-                results.append({
-                    "feedstock": fs.name,
-                    "pypi_name": pypi_name,
-                    "current": current,
-                    "missing": missing,
-                })
-            else:
-                print(f"📦 {pypi_name} (feedstock: {current})")
-                for v in missing:
-                    print(f"   → {v}")
-                print()
+            print(f"📦 {pypi_name} (feedstock: {current})")
+            for v in missing:
+                print(f"   → {v}")
+            print()
 
-    if json_mode:
-        print(json.dumps(results))
-    elif not found_any:
+    if not found_any:
         print("✅ All feedstocks are up to date!")
 
 

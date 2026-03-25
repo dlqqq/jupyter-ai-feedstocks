@@ -102,6 +102,14 @@ Use this to update the `requirements.run` section in `recipe/recipe.yaml`. Follo
 
 #### 4c: Create branch, commit, push, and open PR
 
+Get your GitHub username (do this once before the loop):
+
+```bash
+gh_user=$(gh api user -q .login)
+```
+
+Then for each package:
+
 ```bash
 cd <feedstock>
 git switch -c update-to-<version>
@@ -109,7 +117,7 @@ git add recipe/recipe.yaml
 git commit -m "Update to <version>"
 git push fork update-to-<version>
 # for example, PR title should be in the format 'jupyter-ai-acp-client v1.2.3'
-gh pr create --base main --title "<package-name> v<version>" --body "<pr_body>"
+gh pr create --base main --head "$gh_user:update-to-<version>" --title "<package-name> v<version>" --body "<pr_body>"
 ```
 
 For the PR body, fill out the conda-forge PR template checklist with all boxes unchecked:

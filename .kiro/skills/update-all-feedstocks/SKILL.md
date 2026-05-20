@@ -114,7 +114,7 @@ Then for each package:
 cd <feedstock>
 git switch -c update-to-<version>
 git add recipe/recipe.yaml
-git commit -m "Update to <version>"
+git commit -m "<package-name> v<version>"
 git push fork update-to-<version>
 # for example, PR title should be in the format 'jupyter-ai-acp-client v1.2.3'
 gh pr create --base main --head "$gh_user:update-to-<version>" --title "<package-name> v<version>" --body "<pr_body>"

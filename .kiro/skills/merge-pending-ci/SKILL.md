@@ -9,11 +9,27 @@ Merge GitHub PRs once their CI checks pass. ONLY RUN THIS SKILL WHEN EXPLICITLY 
 Ask the user which PRs to merge. Each PR should be identified by its feedstock
 directory and PR number, or by a full GitHub URL.
 
-### Step 2: Poll and Merge
+Also ask the user for a deadline time (e.g. "7pm"). If the deadline passes
+before all PRs are merged, stop polling and report the remaining PRs as timed
+out.
 
-Loop until all PRs are either merged or have failing CI:
+### Step 2: Prevent Sleep
 
-1. Sleep 30 seconds
+Compute the number of seconds until the deadline and start `caffeinate` in the
+background to prevent the laptop from sleeping:
+
+```bash
+deadline=$(date -j -f "%Y-%m-%d %H:%M:%S" "<deadline_date> <deadline_time>" +%s)
+now=$(date +%s)
+remaining=$((deadline - now))
+nohup caffeinate -s -t $remaining > /dev/null 2>&1 & disown
+```
+
+### Step 3: Poll and Merge
+
+Loop until all PRs are merged:
+
+1. Sleep 5 minutes
 2. For each pending PR, check CI status:
    ```bash
    cd <feedstock> && gh pr checks <number>
@@ -24,10 +40,23 @@ Loop until all PRs are either merged or have failing CI:
    cd <feedstock> && gh pr merge <number> --squash -t "$title"
    ```
    Mark the PR as merged.
-4. If any check has failed, mark the PR as failed and stop polling it.
-5. If checks are still pending, continue polling on the next iteration.
+4. If any check has failed, kick CI by closing and reopening the PR:
+   ```bash
+   cd <feedstock> && gh pr close <number> && gh pr reopen <number>
+   ```
+5. If checks are still pending, do nothing.
+6. Check the current time via `date +%H:%M` and compare against the deadline.
+   If the current time is past the deadline, stop polling and move to the
+   summary.
+7. Continue polling if any PRs are still not merged.
 
-### Step 3: Summary
+### Step 4: Summary
+
+Stop `caffeinate`:
+
+```bash
+killall caffeinate
+```
 
 Once all PRs are resolved, present a report:
 
@@ -37,8 +66,8 @@ Once all PRs are resolved, present a report:
 Merged:
 - <feedstock> #<number> — <pr_title>
 
-Failed CI:
-- <feedstock> #<number> — <pr_title> (failed check: <check_name>)
+Timed Out:
+- <feedstock> #<number> — <pr_title>
 ```
 
-If all PRs merged successfully, omit the "Failed CI" section and vice versa.
+If all PRs merged successfully, omit the "Timed Out" section and vice versa.
